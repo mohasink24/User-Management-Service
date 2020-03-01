@@ -32,7 +32,7 @@ public abstract class AuditedEntity {
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    private LocalDateTime updateddAt;
+    private LocalDateTime updatedAt;
 
 
     /**

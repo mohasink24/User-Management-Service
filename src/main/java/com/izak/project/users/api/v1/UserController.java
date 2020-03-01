@@ -3,19 +3,24 @@ package com.izak.project.users.api.v1;
 import com.izak.project.users.entities.User;
 import com.izak.project.users.repositories.UserRepository;
 import com.izak.project.users.service.DatabaseService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * User related operations endpoint definitions
  *
  * @author Mohasin Kazi
- * @since 1st Match 20202
+ * @since 1st Match 2020
  */
-@RestController
+@EnableSwagger2
+@Api(value = "/v1/users/", description = "This is collection of basic user operations")
+@RestController(value = "/v1/users/")
 // TODO [MK] allow this only if necessary
 @CrossOrigin(allowedHeaders = "*",
         methods = {RequestMethod.DELETE,
@@ -33,6 +38,8 @@ public class UserController {
 
 
     // TODO [MK] following is a test code to test db connections, please remove
+
+    @ApiOperation(value = "save-dummy", notes = "This is to test db connections")
     @GetMapping(value = "save-dummy")
     public void saveDummyUser() {
 
@@ -52,6 +59,5 @@ public class UserController {
             e.printStackTrace();
         }
     }
-
 
 }
